@@ -9,12 +9,11 @@ import java.util.List;
 
 @RestController
 class MainController {
-    private CreatureFactory factory;
+    private final CreatureFactory factory;
 
     public MainController(CreatureFactory factory) {
         this.factory = factory;
     }
-
 
     @PostMapping
     @ResponseBody()
