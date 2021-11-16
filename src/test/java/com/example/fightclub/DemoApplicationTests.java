@@ -1,4 +1,4 @@
-package com.example.fightclub.demo;
+package com.example.fightclub;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
