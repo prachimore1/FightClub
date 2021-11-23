@@ -9,7 +9,7 @@ public class SlackConfig {
     String postMessageUrl;
 
     public SlackConfig() {
-        this.appToken = "xoxb-2739193187328-2713139330213-ZmsDp9Ai8LdLpY7TmzysSpD9";
+        this.appToken = "xoxb-2739193187328-2713139330213-UjIGfMskDk6AQKuYXzlGjskL";
         this.postMessageUrl = "https://slack.com/api/chat.postMessage";
     }
 
@@ -18,7 +18,11 @@ public class SlackConfig {
         this.postMessageUrl = postMessageUrl;
     }
 
-    public RestTemplate getRestTemplate() {
-        return new RestTemplate();
+    public String getAppToken() {
+        return appToken;
+    }
+
+    public String getPostMessageUrl() {
+        return postMessageUrl;
     }
 }

@@ -22,19 +22,28 @@ public class SlackClient {
 
     public String startFight(Creature creature, List<String> channel_id) {
 
-        RestTemplate restTemplate = config.getRestTemplate();
+        RestTemplate restTemplate = new RestTemplate();
 
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
-        headers.setBearerAuth(config.appToken);
+        headers.setBearerAuth(config.getAppToken());
 
-        PostMessage message = new PostMessage(channel_id.get(0), "Fight club welcomes you for a demo!", List.of(creature));
+        PostMessage message = new PostMessage(
+                channel_id.get(0),
+                "Welcome to Fight Club! Can you fight this? React with an emoji!!",
+                List.of(creature)
+        );
 
         HttpEntity<PostMessage> entity = new HttpEntity<>(message, headers);
 
-        final ResponseEntity<String> responseEntity = restTemplate.postForEntity(config.postMessageUrl, entity, String.class);
+        final ResponseEntity<String> responseEntity = restTemplate.postForEntity(
+                config.getPostMessageUrl(),
+                entity,
+                String.class
+        );
         System.out.println(responseEntity.getBody());
 
         return responseEntity.getBody();
     }
+
 }
